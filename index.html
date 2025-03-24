@@ -16,16 +16,6 @@
             font-size: 3em;
             margin-top: 50px;
         }
-        .balloons {
-            position: absolute;
-            bottom: -100px;
-            animation: float 5s infinite ease-in-out;
-        }
-        @keyframes float {
-            0% { transform: translateY(0); }
-            50% { transform: translateY(-200px); }
-            100% { transform: translateY(0); }
-        }
         button {
             background: #ff4081;
             border: none;
@@ -49,18 +39,40 @@
             0% { transform: translateY(-100vh) rotate(0); }
             100% { transform: translateY(100vh) rotate(360deg); }
         }
+        .cake {
+            font-size: 100px;
+            animation: bounce 1s infinite alternate;
+        }
+        @keyframes bounce {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-20px); }
+        }
+        .fireworks {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: red;
+            border-radius: 50%;
+            animation: explode 1s ease-out infinite;
+        }
+        @keyframes explode {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(5); opacity: 0; }
+        }
     </style>
 </head>
 <body>
     <h1>🎉 Happy Birthday, Montana! 🎂</h1>
     <p>You are the best sister ever, and today is all about celebrating YOU! 🎈💖</p>
-    <button onclick="playMusic()">Click for a Surprise 🎶</button>
+    <div class="cake">🎂</div>
+    <button onclick="startCelebration()">Click for a Surprise 🎶</button>
     <audio id="bdaySong" src="https://www.bensound.com/bensound-music/bensound-birthday.mp3"></audio>
     <script>
-        function playMusic() {
+        function startCelebration() {
             document.getElementById('bdaySong').play();
             alert("Montana, you are AMAZING! Hope your day is filled with joy! 🎊🎂");
             createConfetti();
+            createFireworks();
         }
         function createConfetti() {
             for (let i = 0; i < 30; i++) {
@@ -70,6 +82,17 @@
                 confetti.style.background = `hsl(${Math.random() * 360}, 100%, 50%)`;
                 confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
                 document.body.appendChild(confetti);
+            }
+        }
+        function createFireworks() {
+            for (let i = 0; i < 10; i++) {
+                let firework = document.createElement('div');
+                firework.className = 'fireworks';
+                firework.style.left = Math.random() * 100 + 'vw';
+                firework.style.top = Math.random() * 100 + 'vh';
+                firework.style.background = `hsl(${Math.random() * 360}, 100%, 50%)`;
+                firework.style.animationDuration = (Math.random() * 2 + 1) + 's';
+                document.body.appendChild(firework);
             }
         }
     </script>
