@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <style>
+        body {
+            text-align: center;
+            background: linear-gradient(120deg, #ff9a9e, #fad0c4);
+            font-family: Arial, sans-serif;
+            color: white;
+            overflow: hidden;
+        }
+        h1 {
+            font-size: 3em;
+            margin-top: 50px;
+        }
+        .balloons {
+            position: absolute;
+            bottom: -100px;
+            animation: float 5s infinite ease-in-out;
+        }
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-200px); }
+            100% { transform: translateY(0); }
+        }
+        button {
+            background: #ff4081;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            color: white;
+            cursor: pointer;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎉 Happy Birthday! 🎂</h1>
+    <p>Wishing you a fantastic year ahead filled with joy and success!</p>
+    <button onclick="playMusic()">Click for a Surprise 🎶</button>
+    <audio id="bdaySong" src="https://www.bensound.com/bensound-music/bensound-birthday.mp3"></audio>
+    <script>
+        function playMusic() {
+            document.getElementById('bdaySong').play();
+            alert("Enjoy your special day! 🎈");
+        }
+    </script>
+</body>
+</html>
